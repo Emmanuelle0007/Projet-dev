@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="275987b3-d4a9-4fb2-89ff-5a44e44e82f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/Button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/Card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/Modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/OfferCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/LandingPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -13,12 +19,19 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3BLy9BMprPOP8loxzC0coDDy3Pk" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,6 +42,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "git-widget-placeholder": "feature__landing-page",
     "javascript.preferred.runtime.type.id": "node",
@@ -55,7 +69,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774282490679</updated>
-      <workItem from="1774282491925" duration="14694000" />
+      <workItem from="1774282491925" duration="15273000" />
+      <workItem from="1774354091921" duration="7149000" />
     </task>
     <servers />
   </component>

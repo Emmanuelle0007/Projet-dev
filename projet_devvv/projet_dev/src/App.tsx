@@ -1,11 +1,11 @@
-import LandingPage from './componantes/LandingPage.tsx';
+import LandingPage from './componantes/LandingPage';
 
 function App() {
-  return (
-      <div className="font-body bg-white text-navy overflow-x-hidden">
-        <LandingPage />
-      </div>
-  )
+    return (
+        <div className="font-body bg-white text-navy overflow-x-hidden">
+            <LandingPage />
+        </div>
+    );
 }
 
-export default App
+export default App;
