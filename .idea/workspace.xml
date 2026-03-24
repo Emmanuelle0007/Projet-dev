@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="275987b3-d4a9-4fb2-89ff-5a44e44e82f0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/Footer.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/LandingPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +55,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1774282490679</updated>
-      <workItem from="1774282491925" duration="10069000" />
+      <workItem from="1774282491925" duration="14694000" />
     </task>
     <servers />
   </component>

@@ -125,12 +125,10 @@ function HotelCard({ hotel }: { hotel: Hotel }) {
   const [showModal, setShowModal] = useState(false)
   const [bookingData, setBookingData] = useState({ checkin: '', checkout: '', guests: '2' })
   const [bookingSuccess, setBookingSuccess] = useState(false)
-  const [showBookingsModal, setShowBookingsModal] = useState(false)
   const [userBookings, setUserBookings] = useState<Array<{ hotelName: string; checkin: string; checkout: string; guests: string; date: string }>>([])
 
   const allImages = [hotel.img, ...hotel.hoverImages]
 
-  // Charger les réservations depuis localStorage au montage
   useEffect(() => {
     const savedBookings = localStorage.getItem('userBookings')
     if (savedBookings) {
@@ -181,11 +179,11 @@ function HotelCard({ hotel }: { hotel: Hotel }) {
             }}
         >
           {/* IMAGE */}
-          <div className="relative overflow-hidden" style={{ height: '220px' }}>
+          <div className="relative overflow-hidden" style={{ height: '320px' }}>
             <img
                 src={allImages[currentImgIndex]}
                 alt={hotel.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover pointer-events-none"
                 style={{ transition: 'transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}
                 onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.08)' }}
                 onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)' }}
@@ -195,14 +193,16 @@ function HotelCard({ hotel }: { hotel: Hotel }) {
                 }}
             />
 
-            {/* Dots de navigation */}
+            {/* Dots de navigation - ENCORE PLUS GRANDS */}
             <div
                 className="absolute bottom-0 left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.55), transparent)',
-                  padding: '20px 10px 10px',
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                  padding: '32px 20px 24px',
                   display: 'flex',
-                  gap: '4px',
+                  gap: '12px',
+                  justifyContent: 'center',
+                  zIndex: 20,
                 }}
             >
               {allImages.map((_, i) => (
@@ -213,59 +213,61 @@ function HotelCard({ hotel }: { hotel: Hotel }) {
                         setCurrentImgIndex(i)
                       }}
                       style={{
-                        flex: 1,
-                        height: '3px',
-                        borderRadius: '2px',
+                        width: '40px',
+                        height: '5px',
+                        borderRadius: '4px',
                         border: 'none',
                         cursor: 'pointer',
-                        transition: 'background 0.2s',
-                        background: currentImgIndex === i ? '#D4A853' : 'rgba(255,255,255,0.45)',
+                        transition: 'all 0.2s',
+                        background: currentImgIndex === i ? '#D4A853' : 'rgba(255,255,255,0.6)',
                       }}
                       aria-label={`Image ${i + 1}`}
                   />
               ))}
             </div>
 
-            {/* Flèche gauche */}
+            {/* Flèche gauche - PLUS GRANDE */}
             <button
-                className="absolute left-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
+                className="absolute left-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
                 style={{
-                  width: '28px', height: '28px', borderRadius: '50%',
-                  background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer',
+                  width: '44px', height: '44px', borderRadius: '50%',
+                  background: 'rgba(255,255,255,0.95)', border: 'none', cursor: 'pointer',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.2)', zIndex: 15,
                 }}
                 onClick={(e) => {
                   e.stopPropagation()
                   setCurrentImgIndex((prev) => (prev - 1 + allImages.length) % allImages.length)
                 }}
             >
-              <svg className="w-3.5 h-3.5 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg className="w-5 h-5 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
-            {/* Flèche droite */}
+            {/* Flèche droite - PLUS GRANDE */}
             <button
-                className="absolute right-2 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
+                className="absolute right-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center"
                 style={{
-                  width: '28px', height: '28px', borderRadius: '50%',
-                  background: 'rgba(255,255,255,0.85)', border: 'none', cursor: 'pointer',
+                  width: '44px', height: '44px', borderRadius: '50%',
+                  background: 'rgba(255,255,255,0.95)', border: 'none', cursor: 'pointer',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.2)', zIndex: 15,
                 }}
                 onClick={(e) => {
                   e.stopPropagation()
                   setCurrentImgIndex((prev) => (prev + 1) % allImages.length)
                 }}
             >
-              <svg className="w-3.5 h-3.5 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg className="w-5 h-5 text-stone-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
 
             {/* Badge catégorie */}
             <div
-                className="absolute top-3 left-3 text-white uppercase px-2.5 py-1"
+                className="absolute top-4 left-4 text-white uppercase px-3 py-1.5"
                 style={{
-                  background: 'rgba(15,23,42,0.75)', backdropFilter: 'blur(8px)',
-                  borderRadius: '2px', fontSize: '10px', letterSpacing: '0.12em',
+                  background: 'rgba(15,23,42,0.85)', backdropFilter: 'blur(8px)',
+                  borderRadius: '2px', fontSize: '11px', letterSpacing: '0.12em', fontWeight: '500', zIndex: 10,
                 }}
             >
               {hotel.category}
@@ -277,17 +279,18 @@ function HotelCard({ hotel }: { hotel: Hotel }) {
                   e.stopPropagation()
                   setIsFav((prev) => !prev)
                 }}
-                className="absolute top-3 right-3 flex items-center justify-center"
+                className="absolute top-4 right-4 flex items-center justify-center"
                 style={{
-                  width: '32px', height: '32px',
-                  background: isFav ? '#FEE2E2' : 'rgba(255,255,255,0.9)',
+                  width: '40px', height: '40px',
+                  background: isFav ? '#FEE2E2' : 'rgba(255,255,255,0.95)',
                   backdropFilter: 'blur(8px)', borderRadius: '50%', border: 'none', cursor: 'pointer',
                   transition: 'all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1)',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.15)', zIndex: 10,
                 }}
                 aria-label="Ajouter aux favoris"
             >
               <svg
-                  className="w-3.5 h-3.5"
+                  className="w-5 h-5"
                   fill={isFav ? '#EF4444' : 'none'}
                   stroke={isFav ? '#EF4444' : '#9CA3AF'}
                   strokeWidth={1.5}
@@ -304,16 +307,16 @@ function HotelCard({ hotel }: { hotel: Hotel }) {
           </div>
 
           {/* CONTENT */}
-          <div className="p-5">
+          <div className="p-6">
             <h3
-                className="text-stone-900 font-semibold leading-snug mb-1"
-                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '15px' }}
+                className="text-stone-900 font-semibold leading-snug mb-1.5"
+                style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '18px' }}
             >
               {hotel.name}
             </h3>
 
-            <p className="flex items-center gap-1 text-stone-400 mb-2.5" style={{ fontSize: '11px' }}>
-              <svg className="w-2.5 h-2.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <p className="flex items-center gap-1.5 text-stone-400 mb-3" style={{ fontSize: '12px' }}>
+              <svg className="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -321,12 +324,12 @@ function HotelCard({ hotel }: { hotel: Hotel }) {
               {hotel.location}
             </p>
 
-            <div className="flex items-center gap-1.5 mb-3">
-              <div className="flex gap-0.5">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="flex gap-1">
                 {[1, 2, 3, 4, 5].map((s) => (
                     <svg
                         key={s}
-                        className={`w-3 h-3 ${s <= Math.floor(hotel.rating) ? 'text-amber-400' : 'text-stone-200'}`}
+                        className={`w-3.5 h-3.5 ${s <= Math.floor(hotel.rating) ? 'text-amber-400' : 'text-stone-200'}`}
                         fill="currentColor"
                         viewBox="0 0 20 20"
                     >
@@ -334,39 +337,39 @@ function HotelCard({ hotel }: { hotel: Hotel }) {
                     </svg>
                 ))}
               </div>
-              <span className="text-stone-400" style={{ fontSize: '11px' }}>
+              <span className="text-stone-400" style={{ fontSize: '12px' }}>
               {hotel.rating} ({hotel.reviews.toLocaleString()})
             </span>
             </div>
 
-            <div className="flex flex-wrap gap-1 mb-4">
+            <div className="flex flex-wrap gap-2 mb-5">
               {hotel.tags.map((tag) => (
                   <span
                       key={tag}
                       className="text-stone-500"
-                      style={{ fontSize: '10px', letterSpacing: '0.08em', background: '#F5F2ED', padding: '2px 8px', borderRadius: '2px' }}
+                      style={{ fontSize: '11px', letterSpacing: '0.08em', background: '#F5F2ED', padding: '4px 10px', borderRadius: '2px' }}
                   >
                 {tag}
               </span>
               ))}
             </div>
 
-            <div className="flex items-center justify-between pt-3" style={{ borderTop: '1px solid #F0EDE8' }}>
+            <div className="flex items-center justify-between pt-4" style={{ borderTop: '1px solid #F0EDE8' }}>
               <div>
               <span
                   className="text-stone-900 font-semibold"
-                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '17px' }}
+                  style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: '20px' }}
               >
                 {hotel.price.toLocaleString('fr-FR')}
               </span>
-                <span className="text-stone-400 ml-1" style={{ fontSize: '11px' }}>FCFA / nuit</span>
+                <span className="text-stone-400 ml-1" style={{ fontSize: '12px' }}>FCFA / nuit</span>
               </div>
               <button
                   onClick={() => setShowModal(true)}
                   className="text-white font-medium uppercase transition-all duration-200 hover:opacity-90 active:scale-95"
                   style={{
-                    background: '#0F172A', fontSize: '10px', letterSpacing: '0.12em',
-                    padding: '8px 16px', borderRadius: '2px', border: 'none', cursor: 'pointer',
+                    background: '#0F172A', fontSize: '11px', letterSpacing: '0.12em',
+                    padding: '10px 20px', borderRadius: '2px', border: 'none', cursor: 'pointer',
                   }}
               >
                 Réserver
@@ -521,7 +524,6 @@ export default function LandingPage() {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
 
-    // Charger les réservations
     const savedBookings = localStorage.getItem('userBookings')
     if (savedBookings) {
       setUserBookings(JSON.parse(savedBookings))
@@ -537,9 +539,8 @@ export default function LandingPage() {
     setTimeout(() => setEmailSent(false), 4000)
   }
 
-  const displayedHotels = showAllHotels ? hotels : hotels.slice(0, 2)
+  const displayedHotels = showAllHotels ? hotels : hotels.slice(0, 3)
 
-  // Fonction pour mettre à jour les réservations
   const updateBookings = () => {
     const savedBookings = localStorage.getItem('userBookings')
     if (savedBookings) {
@@ -547,7 +548,6 @@ export default function LandingPage() {
     }
   }
 
-  // Écouter les changements dans localStorage
   useEffect(() => {
     const handleStorageChange = () => {
       updateBookings()
@@ -806,7 +806,8 @@ export default function LandingPage() {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            {/* Grille modifiée : 3 colonnes par défaut (ratio 3:2) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {displayedHotels.map((hotel) => (
                   <HotelCard key={hotel.id} hotel={hotel} />
               ))}
@@ -833,7 +834,7 @@ export default function LandingPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {offers.map((offer) => (
                   <div
                       key={offer.title}
@@ -843,7 +844,7 @@ export default function LandingPage() {
                     <img
                         src={offer.img}
                         alt={offer.title}
-                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 pointer-events-none"
                         onError={(e) => {
                           (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&q=80'
                         }}
@@ -895,7 +896,7 @@ export default function LandingPage() {
 
             {/* Newsletter */}
             <div
-                className="mt-8 flex flex-col md:flex-row items-center justify-between gap-8 px-10 py-10"
+                className="mt-12 flex flex-col md:flex-row items-center justify-between gap-8 px-10 py-10"
                 style={{ background: '#0F172A', borderRadius: '4px' }}
             >
               <div>
