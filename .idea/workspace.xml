@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="275987b3-d4a9-4fb2-89ff-5a44e44e82f0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/Card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/Modal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/OfferCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/projet_devvv/projet_dev/src/componantes/LandingPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774282490679</updated>
       <workItem from="1774282491925" duration="15273000" />
-      <workItem from="1774354091921" duration="7149000" />
+      <workItem from="1774354091921" duration="11580000" />
     </task>
     <servers />
   </component>
