@@ -1,87 +1,108 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email || !password) {
-      setError("Veuillez remplir tous les champs.");
-      return;
-    }
-    console.log("Connexion avec :", email, password);
-  };
+  const [isRegister, setIsRegister] = useState(false);
 
   return (
-    <div className="min-h-screen flex bg-[#4B4866]">
-      {/* LEFT SIDE */}
-      <div className="w-1/2 flex items-center justify-center bg-gray-100 rounded-r-[40px]">
-        <div className="bg-white p-10 rounded-2xl shadow-xl w-[400px]">
-          <h3 className="text-orange-400 font-semibold mb-2">
-            Votre logo ici
-          </h3>
+    <div className="min-h-screen flex items-center justify-center bg-[#3C3B58]">
+      {/* CONTAINER PRINCIPAL */}
+      <div className="w-[760px] h-[420px] bg-white rounded-[25px] overflow-hidden flex shadow-xl">
+        
+        {/* LEFT SIDE (formulaire) */}
+        <div className="w-1/2 flex items-center justify-center bg-[#fef8f5]">
+          {/* CARD FORM */}
+          <div className="bg-white p-6 rounded-2xl shadow-md w-[280px]">
+            
+            <h3 className="text-orange-400 font-semibold mb-3 text-sm">
+              Votre logo ici
+            </h3>
 
-          <p className="text-gray-400 text-sm mb-1">Bienvenue !!!</p>
+            <p className="text-gray-400 text-xs mb-1">
+              {isRegister ? "Créer un compte" : "Bienvenue !!!"}
+            </p>
 
-          <h2 className="text-3xl font-bold mb-6">Connexion</h2>
+            <h2 className="text-xl font-bold mb-5">
+              {isRegister ? "Inscription" : "Connexion"}
+            </h2>
 
-          {error && <p className="text-red-500 mb-3">{error}</p>}
+            <form>
+              {isRegister && (
+                <div className="mb-3">
+                  <label className="text-xs text-gray-600">Nom complet</label>
+                  <input
+                    type="text"
+                    className="w-full p-2 mt-1 bg-[#F3EAEA] rounded-lg outline-none text-sm"
+                  />
+                </div>
+              )}
 
-          <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="text-sm text-gray-600">Email</label>
-              <input
-                type="email"
-                placeholder="test@gmail.com"
-                className="w-full p-3 mt-1 bg-gray-100 rounded-lg outline-none"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-
-            <div className="mb-2">
-              <div className="flex justify-between text-sm text-gray-600">
-                <label>Password</label>
-                <Link to="/reset-password" className="text-gray-400">
-                  Mot de passe oublié
-                </Link>
+              <div className="mb-3">
+                <label className="text-xs text-gray-600">Email</label>
+                <input
+                  type="email"
+                  placeholder="test@gmail.com"
+                  className="w-full p-2 mt-1 bg-[#F3EAEA] rounded-lg outline-none text-sm"
+                />
               </div>
-              <input
-                type="password"
-                placeholder="********"
-                className="w-full p-3 mt-1 bg-gray-100 rounded-lg outline-none"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
 
-            <button
-              type="submit"
-              className="w-full mt-6 bg-orange-400 hover:bg-orange-500 text-white py-3 rounded-full transition"
-            >
-              SE CONNECTER
-            </button>
-          </form>
+              <div className="mb-1">
+                <div className="flex justify-between text-xs text-gray-600">
+                  <label>Password</label>
+                  {!isRegister && (
+                    <span className="text-gray-400 cursor-pointer">
+                      Mot de passe oublié
+                    </span>
+                  )}
+                </div>
 
-          <p className="text-center text-gray-400 text-sm mt-6">
-            Pas encore de compte ?{" "}
-            <Link to="/register" className="text-orange-400 font-medium">
-              S’inscrire
-            </Link>
-          </p>
+                <input
+                  type="password"
+                  placeholder="********"
+                  className="w-full p-2 mt-1 bg-[#F3EAEA] rounded-lg outline-none text-sm"
+                />
+              </div>
+
+              {isRegister && (
+                <div className="mt-3">
+                  <label className="text-xs text-gray-600">
+                    Confirmer mot de passe
+                  </label>
+                  <input
+                    type="password"
+                    className="w-full p-2 mt-1 bg-[#F3EAEA] rounded-lg outline-none text-sm"
+                  />
+                </div>
+              )}
+
+              {/* BOUTON CENTRÉ LONGUEUR MOYENNE */}
+              <button
+                type="submit"
+                className="w-[140px] mx-auto mt-3 bg-orange-400 hover:bg-orange-500 text-white py-1 rounded-full text-xs transition block"
+              >
+                {isRegister ? "S’INSCRIRE" : "SE CONNECTER"}
+              </button>
+            </form>
+
+            <p className="text-center text-gray-400 text-xs mt-4">
+              {isRegister ? "Déjà un compte ?" : "Pas encore de compte ?"}{" "}
+              <span
+                onClick={() => setIsRegister(!isRegister)}
+                className="text-orange-400 cursor-pointer"
+              >
+                {isRegister ? "Connexion" : "S’inscrire"}
+              </span>
+            </p>
+          </div>
         </div>
-      </div>
 
-      {/* RIGHT SIDE avec photo */}
-      <div className="w-1/2">
-        <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-          alt="photo"
-          className="w-full h-full object-cover"
-        />
+        {/* RIGHT SIDE (image) */}
+        <div className="w-1/2">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+            alt="illustration"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
     </div>
   );
